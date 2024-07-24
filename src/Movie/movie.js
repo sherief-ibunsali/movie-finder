@@ -9,11 +9,11 @@ let key = "6efe6bb8";
 
 export default function MovieApp() {
   const [movies, setMovies] = useState([]);
-  // const [watched, setWatched] = useState([]);
-  const [watched,setWatched]=useState(function(){
-    const storeValue = localStorage.getItem("watched");
-    return JSON.parse(storeValue);
-  })
+  const [watched, setWatched] = useState([]);
+  // const [watched,setWatched]=useState(function(){
+  //   const storeValue = localStorage.getItem("watched");
+  //   return JSON.parse(storeValue);
+  // })
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [query, setQuery] = useState("");
@@ -38,9 +38,9 @@ export default function MovieApp() {
     setWatched((watch) => watch.filter((fil) => fil.imdbID !== id));
   }
 
-  useEffect(function(){
-   localStorage.setItem("watched",JSON.stringify(watched))
-  },[watched])
+  // useEffect(function(){
+  //  localStorage.setItem("watched",JSON.stringify(watched))
+  // },[watched])
 
   useEffect(function () {
     function callback(e) {

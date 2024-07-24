@@ -43,21 +43,20 @@ export default function MovieDetails({
 
   useEffect(
     function () {
-      async function getMovieDetail() {
+      async function getMovieDetails() {
         setIsLoading(true);
         const res = await fetch(
           `http://www.omdbapi.com/?apikey=${key}&i=${selectedId}`
         );
         const data = await res.json();
         setMovie(data);
-        console.log(movie);
         setIsLoading(false);
-        console.log(data);
       }
-      getMovieDetail();
+      getMovieDetails();
     },
     [selectedId]
   );
+
   useEffect(
     function () {
       if (!title) return;

@@ -14,7 +14,6 @@ export default function MovieDetails({
 
   const isWatched = watched.map((movie) => movie.imdbID).includes(selectedId);
 
-
   const watchedUserRating = watched.find(
     (movie) => movie.imdbID === selectedId
   )?.userRating;
@@ -46,7 +45,7 @@ export default function MovieDetails({
       async function getMovieDetails() {
         setIsLoading(true);
         const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${key}&i=${selectedId}`
+          `https://www.omdbapi.com/?apikey=${key}&i=${selectedId}`
         );
         const data = await res.json();
         setMovie(data);
@@ -79,7 +78,7 @@ export default function MovieDetails({
       poster,
       imdbRating: Number(imdbRating),
       userRating,
-      runtime: runtime ? Number(runtime.split(" ").at(0)) : 0,  
+      runtime: runtime ? Number(runtime.split(" ").at(0)) : 0,
       countRatingDesion: countRef.current,
     };
     console.log(newWatchedMovie);
@@ -148,6 +147,3 @@ export default function MovieDetails({
 function Loader() {
   return <p className="loader">Loading...</p>;
 }
-
-
-

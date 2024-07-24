@@ -206,7 +206,9 @@ function NumResults({ movies }) {
 // ************ component composition to solve drill ************
 
 function Main({ children, isEmpty }) {
-  return <main className={`main ${isEmpty ? "add-height" : " "}`}>{children}</main>;
+  return (
+    <main className={`main ${isEmpty ? "add-height" : " "}`}>{children}</main>
+  );
 }
 
 // ************ component composition to solve drill ************
